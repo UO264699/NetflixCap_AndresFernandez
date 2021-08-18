@@ -12,10 +12,13 @@ function searchMovieByTitle(){
 
 }
 
+
+
+
 function showMovie(movie){
 
     document.getElementById("peliculas").innerHTML = '<img  src=' + movie.Poster + 'alt= "movie" />' + 
-    '<div>' +  movie.Title +  '</div>';
+    '<div> <br>' +  movie.Title + ", " + movie.Year + ' (' + movie.Director +  ')' + '</br></div>' + movie.Plot + "<div>";
 }
 
 
