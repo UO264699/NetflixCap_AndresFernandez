@@ -13,7 +13,17 @@ function searchMovieByTitle(){
 }
 
 
+function listMovies(){
 
+    var title = document.getElementById("title").value;
+
+    fetch("http://www.omdbapi.com/?s=" + title + "&apikey=55e45ea5")
+    .then(success => success.json()).
+    then((movies) => console.log(movies) )
+    .catch((error)=>console.log(error));
+
+    document.getElementById("title").value = "";
+}
 
 function showMovie(movie){
 
