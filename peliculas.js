@@ -1,3 +1,6 @@
+
+var page = 2;
+
 function searchMovieByTitle(){
 
     var title = document.getElementById("title").value;
@@ -10,6 +13,7 @@ function searchMovieByTitle(){
     document.getElementById("title").value = "";
    
 
+ 
 }
 
 
@@ -17,7 +21,7 @@ function listMovies(){
 
     var title = document.getElementById("title").value;
 
-    fetch("http://www.omdbapi.com/?s=" + title + "&apikey=55e45ea5")
+    fetch("http://www.omdbapi.com/?s=" + title + "&page=" + page  + "&apikey=55e45ea5")
     .then(success => success.json()).
     then((movies) => showMovieList(movies) )
     .catch((error)=>console.log(error));
@@ -28,26 +32,56 @@ function listMovies(){
 
 function showMovieList(movies){
 
+    document.getElementById("peliculas").innerHTML= "";
+
     for(movie of movies.Search){
 
+        
 
         let div = document.createElement("div")
 
         document.getElementById("peliculas").appendChild(div)
+        div.innerHTML = `<div id=pelicula class="card" style="width: 18rem">
+        <img  src="${movie.Poster}" alt= "movie" />
+        <div class="card-body">
+        <h5 class="card-title"> ${movie.Title} 
+        </h5>
+        <p class="card-text"> ${movie.Year}  
+        </p>
+        </div>
+        </div>`;
 
-        div.innerHTML = '<img  src=' + movie.Poster + 'alt= "movie" />' + 
-        '<div> <br>' +  movie.Title + ", " + movie.Year + ' (' + movie.Director +  ')' + '</br></div>' + movie.Plot + "<div>"
 
 
     }
 
+   
+
 }
 
 function showMovie(movie){
+    document.getElementById("peliculas").innerHTML = "";
 
-    document.getElementById("peliculas").innerHTML = '<img  src=' + movie.Poster + 'alt= "movie" />' + 
-    '<div> <br>' +  movie.Title + ", " + movie.Year + ' (' + movie.Director +  ')' + '</br></div>' + movie.Plot + "<div>";
+    let div = document.createElement("div")
+
+    document.getElementById("peliculas").appendChild(div)
+
+   
+
+
+    div.innerHTML = `<div id=pelicula class="card" style="width: 18rem">
+    <img  src="${movie.Poster}" alt= "movie" />
+    <div class="card-body">
+    <h5 class="card-title"> ${movie.Title} 
+    </h5>
+    <p class="card-text"> ${movie.Year}  
+    </p>
+    <p class="card-text"> ${movie.Plot}  
+    </p>
+    </div>
+    </div>`;
 }
+
 
 
 
