@@ -22,6 +22,12 @@
     margin-bottom: 40px;
 
 }    
+#seeMovie{
+
+    background-color: rgb(115, 196, 196);
+    border-color:rgb(115, 196, 196) ;
+  
+}
 
 #navbar{
 
@@ -43,4 +49,14 @@
 #textMovie{
 
     justify-content: center;
+}
+
+.btnMovie{
+
+    border-color: white;
+    background-color: white;
+   
+    text-decoration: none;
+    box-shadow: none;
+    border: none;
 }

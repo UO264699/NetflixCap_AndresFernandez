@@ -23,7 +23,7 @@ function showMovie(movie){
    
 
 
-    div.innerHTML = `<div id=pelicula class="card d-flex justify-content-center" style="width: 18rem">
+    div.innerHTML = `<button class="btnMovie"  ><div id=pelicula class="card d-flex justify-content-center" style="width: 18rem">
     <img  src="${movie.Poster}" alt= "movie" />
     <div class="card-body">
     <h5 class="card-title"> ${movie.Title} 
@@ -32,8 +32,9 @@ function showMovie(movie){
     </p>
     <p class="card-text"> ${movie.Plot}  
     </p>
+    <a id="seeMovie" href="#" class="btn ">See Movie</a>
     </div>
-    </div>`;
+    </div></button>`;
 
    
 
@@ -152,22 +153,23 @@ function showMovieList(movies){
         let div = document.createElement("div")
 
         document.getElementById("peliculas").appendChild(div)
-        div.innerHTML = `<div id=pelicula class="card " style="width: 18rem">
+        div.innerHTML = `<button class="btnMovie" ><div id=pelicula class="card " style="width: 18rem">
         <img  src="${movie.Poster}" alt= "movie" />
         <div class="card-body">
         <h5 class="card-title"> ${movie.Title} 
         </h5>
         <p class="card-text"> ${movie.Year}  
         </p>
+        <a id="seeMovie" href="#" class="btn">See Movie</a>
         </div>
-        </div>`;
+        </div> </button>`;
 
 
 
     }
 
 
-        document.getElementById("pagination").hidden = false;
+        
         document.getElementById("textMovie").hidden = true;
     
     
