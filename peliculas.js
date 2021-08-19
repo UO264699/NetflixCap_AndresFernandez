@@ -10,6 +10,7 @@ function showMovie(movie){
 
     document.getElementById("peliculas").innerHTML = "";
 
+    document.getElementById("title").value = "";
    
 
     if(movie.Response !== "False"){
@@ -139,6 +140,9 @@ function showMovieList(movies){
     totalPages = parseInt(movies.totalResults)/10 + 1;
     document.getElementById("peliculas").innerHTML= "";
 
+
+
+    document.getElementById("title").value = "";
    
 
     if(movies.Response !== "False"){
