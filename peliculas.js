@@ -6,7 +6,57 @@ var totalPages=1;
 var searched = false;
 
 var title="";
+function showMovie(movie){
 
+    document.getElementById("peliculas").innerHTML = "";
+
+   
+
+    if(movie.Response !== "False"){
+
+  
+    let div = document.createElement("div")
+
+    document.getElementById("peliculas").appendChild(div)
+
+   
+
+
+    div.innerHTML = `<div id=pelicula class="card d-flex justify-content-center" style="width: 18rem">
+    <img  src="${movie.Poster}" alt= "movie" />
+    <div class="card-body">
+    <h5 class="card-title"> ${movie.Title} 
+    </h5>
+    <p class="card-text"> ${movie.Year}  
+    </p>
+    <p class="card-text"> ${movie.Plot}  
+    </p>
+    </div>
+    </div>`;
+
+   
+
+        
+
+    
+
+}else if(movie.Response === "False"){
+
+
+
+    let div = document.createElement("div")
+
+    document.getElementById("peliculas").appendChild(div)
+
+
+    div.innerHTML = `
+    
+    <h5 class="card-title"> NO RESULTS
+    </h5>
+    `;
+
+}
+}
 
 function searchMovieByTitle(){
 
@@ -21,26 +71,13 @@ function searchMovieByTitle(){
         .catch((error)=>console.log(error));
     
 
-    document.getElementById("title").value = "";
+   if(document.getElementById("title").value.trim() === ""){
+                disabled();
+   }
    
-    disabled();
+   
 
  
-}
-
-function enabled(){
-
-
-    document.getElementById("btnSearch").disabled = false;
-    document.getElementById("btnList").disabled = false;
-
-
-    if(document.getElementById("title").value === ""){
-
-        disabled();
-    }
-
-
 }
 
 function disabled(){
@@ -51,6 +88,25 @@ function disabled(){
    
 
 }
+
+function enabled(){
+
+
+    document.getElementById("btnSearch").disabled = false;
+    document.getElementById("btnList").disabled = false;
+
+
+    if(document.getElementById("title").value.trim() === ""){
+        disabled();
+}
+
+
+}
+function updatePage(){
+
+    document.getElementById("actualPage").innerText = page;
+}
+
 
 function listMovies(){
 
@@ -83,6 +139,10 @@ function showMovieList(movies){
     totalPages = parseInt(movies.totalResults)/10 + 1;
     document.getElementById("peliculas").innerHTML= "";
 
+   
+
+    if(movies.Response !== "False"){
+
     for(movie of movies.Search){
 
         let div = document.createElement("div")
@@ -102,16 +162,26 @@ function showMovieList(movies){
 
     }
 
-    document.getElementById("pagination").hidden = false;
-    document.getElementById("textMovie").hidden = true;
+
+        document.getElementById("pagination").hidden = false;
+        document.getElementById("textMovie").hidden = true;
+    
+    
+    
+}else if(movies.Response === "False"){
+
+    let div = document.createElement("div")
+    document.getElementById("peliculas").appendChild(div)
+    div.innerHTML = `
+    
+    <h5 class="card-title"> NO RESULTS
+    </h5>
+    `;
+
+}}
 
 
-}
 
-function updatePage(){
-
-    document.getElementById("actualPage").innerText = page;
-}
 
 function fetchMovies(){
     fetch("https://www.omdbapi.com/?s=" + localStorage.getItem('title') + "&page=" + page  + "&apikey=55e45ea5")
@@ -153,34 +223,5 @@ function goToNextPage(){
     updatePage();
 
 }
-
-function showMovie(movie){
-    document.getElementById("peliculas").innerHTML = "";
-
-    let div = document.createElement("div")
-
-    document.getElementById("peliculas").appendChild(div)
-
-   
-
-
-    div.innerHTML = `<div id=pelicula class="card d-flex justify-content-center" style="width: 18rem">
-    <img  src="${movie.Poster}" alt= "movie" />
-    <div class="card-body">
-    <h5 class="card-title"> ${movie.Title} 
-    </h5>
-    <p class="card-text"> ${movie.Year}  
-    </p>
-    <p class="card-text"> ${movie.Plot}  
-    </p>
-    </div>
-    </div>`;
-
-    
-    document.getElementById("textMovie").hidden = true;
-}
-
-
-
 
 
