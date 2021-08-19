@@ -11,13 +11,31 @@
     flex-wrap:wrap;
 
     margin-top: 30px;
-    margin-left:60px;
+
+
+    justify-content: center;
     }
 
 #pelicula{
 
     margin-left: 40px;
     margin-bottom: 40px;
- 
 
 }    
+
+#navbar{
+
+    background-color: rgb(115, 196, 196);
+    
+}
+
+#name{
+
+    color: black;
+}
+
+#searchbar{
+
+    margin-top: 30px;
+    justify-content: center;
+}
