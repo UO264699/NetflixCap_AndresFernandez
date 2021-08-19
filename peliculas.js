@@ -14,7 +14,7 @@ function searchMovieByTitle(){
     page=1;    
     updatePage();
     
-        fetch("http://www.omdbapi.com/?t=" + title  + "&apikey=55e45ea5")
+        fetch("https://www.omdbapi.com/?t=" + title  + "&apikey=55e45ea5")
         .then(success => success.json()).
         then((movie) => showMovie(movie) )
         .catch((error)=>console.log(error));
@@ -39,7 +39,7 @@ function listMovies(){
     
 
 
-    fetch("http://www.omdbapi.com/?s=" + localStorage.getItem('title') + "&page=" + page  + "&apikey=55e45ea5")
+    fetch("https://www.omdbapi.com/?s=" + localStorage.getItem('title') + "&page=" + page  + "&apikey=55e45ea5")
     .then(success => success.json()).
     then((movies) => showMovieList(movies) )
     .catch((error)=>console.log(error));
@@ -84,7 +84,7 @@ function updatePage(){
 }
 
 function fetchMovies(){
-    fetch("http://www.omdbapi.com/?s=" + localStorage.getItem('title') + "&page=" + page  + "&apikey=55e45ea5")
+    fetch("https://www.omdbapi.com/?s=" + localStorage.getItem('title') + "&page=" + page  + "&apikey=55e45ea5")
     .then(success => success.json()).
     then((movies) => showMovieList(movies) )
     .catch((error)=>console.log(error));
