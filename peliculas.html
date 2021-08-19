@@ -5,12 +5,39 @@
     <meta charset="UTF-8" >
    
     <title> Películas </title>
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src ="peliculas.js"></script>
+    <link rel="stylesheet" type="text/css" href="peliculas.css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
  </head>
 
+
+ <nav class="navbar sticky-top navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">NetflixCap</a>
+    </div>
+  </nav>
  <body>
 
-    
+<div class="container">
+  <div class="input-group">
+    <input type="search" id="title" class="form-control rounded" placeholder="Search" aria-label="Search"
+      aria-describedby="search-addon" />
+    <button type="button" onclick="searchMovieByTitle()" class="btn btn-outline-primary">Search</button>
+    <button type="button" onclick="listMovies()" class="btn btn-outline-primary">List</button>
+  </div>
+
+
+    <div class= "peliculas" id = "peliculas">
+
+    </div>
+
+   
+</div>
+
+
+</div>
 
  </body>
 
