@@ -19,7 +19,7 @@
       <a id="name" class="navbar-brand"> <i class="bi bi-film"></i> NetflixCap</a>
     </div>
   </nav>
- <body>
+ <body onload="disabled()">
     
 <div class="container">
 
@@ -30,8 +30,8 @@
   <div id="searchbar" class="input-group" >
     <input oninput="enabled()" type="search" id="title" class="form-control rounded" placeholder="Search" aria-label="Search"
       aria-describedby="search-addon" />
-    <button type="button" id="btnSearch" onclick="searchMovieByTitle()" class="btn btn-outline-primary" disabled>  Search <i class="bi bi-search"></i></button>
-    <button type="button" id="btnList" onclick="listMovies()" class="btn btn-outline-primary" disabled> List <i class="bi bi-list-task"></i></button>
+    <button type="button" id="btnSearch" onclick="searchMovieByTitle()" class="btn btn-outline-primary" >  Search <i class="bi bi-search"></i></button>
+    <button type="button" id="btnList" onclick="listMovies()" class="btn btn-outline-primary" > List <i class="bi bi-list-task"></i></button>
   </div>
 
 
