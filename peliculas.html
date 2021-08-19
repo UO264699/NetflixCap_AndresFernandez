@@ -24,13 +24,7 @@
 
    <h2 class="card-title"> NetflixCap </h2>
 
-   <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-    <ul class="pagination">
-      <li class="page-item"><button class="page-link" onclick="goToPreviousPage()">Previous</button></li>
-      <li class="page-item"><button class="page-link" id="actualPage" onclick="updatePage()">1</button></li>
-      <li class="page-item"><button class="page-link" onclick="goToNextPage()">Next</button></li>
-    </ul>
-  </nav>
+ 
 
   <div id="searchbar" class="input-group" >
     <input type="search" id="title" class="form-control rounded" placeholder="Search" aria-label="Search"
@@ -44,7 +38,13 @@
 
     </div>
 
-
+    <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+      <ul class="pagination">
+        <li class="page-item"><button class="page-link" onclick="goToPreviousPage()">Previous</button></li>
+        <li class="page-item"><button class="page-link" id="actualPage" onclick="updatePage()">1</button></li>
+        <li class="page-item"><button class="page-link" onclick="goToNextPage()">Next</button></li>
+      </ul>
+    </nav>
    
 
    
