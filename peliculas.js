@@ -7,6 +7,7 @@ var searched = false;
 
 var title="";
 
+
 function searchMovieByTitle(){
 
 
@@ -22,10 +23,34 @@ function searchMovieByTitle(){
 
     document.getElementById("title").value = "";
    
+    disabled();
 
  
 }
 
+function enabled(){
+
+
+    document.getElementById("btnSearch").disabled = false;
+    document.getElementById("btnList").disabled = false;
+
+
+    if(document.getElementById("title").value === ""){
+
+        disabled();
+    }
+
+
+}
+
+function disabled(){
+
+
+    document.getElementById("btnSearch").disabled = true;
+    document.getElementById("btnList").disabled = true;
+   
+
+}
 
 function listMovies(){
 
@@ -45,6 +70,9 @@ function listMovies(){
     .catch((error)=>console.log(error));
 
     document.getElementById("title").value = "";
+    document.getElementById("btnPrevious").disabled = false;
+    document.getElementById("btnNext").disabled = false;
+    disabled();
 }
 
 
@@ -74,7 +102,9 @@ function showMovieList(movies){
 
     }
 
-   
+    document.getElementById("pagination").hidden = false;
+    document.getElementById("textMovie").hidden = true;
+
 
 }
 
@@ -145,6 +175,9 @@ function showMovie(movie){
     </p>
     </div>
     </div>`;
+
+    
+    document.getElementById("textMovie").hidden = true;
 }
 
 
